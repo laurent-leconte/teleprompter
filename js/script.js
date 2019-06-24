@@ -286,6 +286,28 @@ function navigate(evt)
 	}
 }
 
+// inspiré par https://stackoverflow.com/questions/41695916/go-through-json-object-at-specified-times-e-g-movie-subtitles
+function show_didascalies(text_array, idx) {
+	// calcul du délai avant affichage
+	let delay;
+	if (idx === 0) {
+		// premier message à afficher : on utilise le temps de départ de la didascalie
+		delay = text_array[0].start
+	} else {
+		// sinon le délai est la différence avec le temps de départ du message précédent
+		delay = text_array[idx].start - text_array[idx - 1].start
+	}
+	setTimeout(function() {
+		// afficher le texte dans le bon div
+		$('#didascalie').html(text_array[idx].text);
+		idx++;
+		if (idx < text_array.length) {
+			// s'il reste des messages à afficher, appeler la fonction avec le message suivant
+			show_didascalies(text_array, idx)
+		}
+	}, delay*1000);
+}
+
 // Start Teleprompter
 function start_teleprompter()
 {
@@ -296,7 +318,7 @@ function start_teleprompter()
 	$('.marker, .overlay').fadeIn('slow');
 
 	window.timer.startTimer();
-
+	show_didascalies(didascalies, 0);
 	pageScroll();
 }
 

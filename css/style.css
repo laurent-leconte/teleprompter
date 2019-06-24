@@ -165,7 +165,7 @@ article .titre
 .Mess
 {
     text-align:right;
-    font-size: 13px;
+    font-size: 20px;
 }
 p
 {
@@ -176,3 +176,6 @@ img{
     height: 200px;
 }
 
+#didascalie {
+	margin-right: 10px;
+}
