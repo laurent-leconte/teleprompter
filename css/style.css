@@ -26,7 +26,7 @@ header
 	background-color: #000000;
 	width: 100%;
 	height: 64px;
-	border-bottom: 2px solid #333;
+	/* border-bottom: 2px solid #333; */
 	display: block;
 	z-index: 10;
 }
@@ -84,11 +84,11 @@ article .teleprompter p
 {
 	padding-bottom: 15px;
 	margin-bottom: 15px;
-	border-bottom: 1px solid #444;
+	/* border-bottom: 1px solid #444; */
 }
 article .teleprompter p:last-child
 {
-	border-bottom: 1px solid #4297d7;
+	/* border-bottom: 1px solid #4297d7; */
 }
 .sliders, .buttons, .colors
 {
